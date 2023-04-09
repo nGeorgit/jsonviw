@@ -1,0 +1,99 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+  }
+ 
+  /* Center the heading */
+h1 {
+    text-align: center;
+  }
+  
+  /* Style the spellbook container */
+  #spellbook {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  /* Spell card styling */
+  #spell {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 16px;
+    padding: 16px;
+  }
+  
+  #name {
+    color: #f44336;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  #range,
+  #duration,
+  #castingTime {
+    font-size: 16px;
+    margin: 8px 0;
+  }
+  
+  #description {
+    font-size: 16px;
+    margin: 16px 0;
+  }
+  
+  #castbtn {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background-color: #f44336;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Responsive design */
+  @media only screen and (max-width: 600px) {
+    #spell {
+      margin: 8px;
+      padding: 8px;
+    }
+  
+    #name {
+      font-size: 20px;
+    }
+  
+    #range,
+    #duration,
+    #castingTime {
+      font-size: 14px;
+      margin: 4px 0;
+    }
+  
+    #description {
+      font-size: 14px;
+      margin: 8px 0;
+    }
+  
+    #castbtn {
+      font-size: 16px;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+  }
+  

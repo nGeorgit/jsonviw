@@ -1,134 +1,242 @@
-/* General styling */
-/* style for spell level counters */
-
-#spell-level-counters {
-  background-color: #f6f8fa;
-  border-radius: 6px;
-  margin: 20px 0;
-  padding: 20px;
+/* Reset CSS */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Arial, sans-serif;
 }
 
-#spell-level-counters h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
+.spell-list .btn-toggle {
+	border: none;
+	background: none;
+	font-size: 1.2rem;
+	cursor: pointer;
+  }
+  
+  .spell-list .btn-toggle::before {
+	content: '+';
+  }
+  
+  .spell-list .btn-toggle[aria-expanded="true"]::before {
+	content: '-';
+  }
+  
+  .spell-list .spells {
+	display: none;
+  }
+  
+  .spell-list .btn-toggle[aria-expanded="true"] + .spells {
+	display: block;
+  }
+
+  .btn-toggle {
+	background-color: #4CAF50; /* Set the background color */
+	border: none; /* Remove the border */
+	color: rgb(0, 0, 0); /* Set the text color */
+	padding: 10px 20px; /* Set the padding */
+	text-align: center; /* Center the text */
+	text-decoration: none; /* Remove the underline */
+	display: inline-block; /* Make it an inline block element */
+	font-size: 16px; /* Set the font size */
+	cursor: pointer; /* Set the cursor to a pointer */
+	transition: all 0.3s ease; /* Add a transition effect */
+  }
+  
+  .btn-toggle:hover {
+	transform: scale(1.1); /* Scale the button on hover */
+  }
+  
+
+/* Global Styles */
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 20px;
 }
 
-.counter {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px;
+header {
+	background-color: #0B0D13;
+	color: #fff;
+	padding: 10px 0;
 }
 
-.counter span:first-child {
+.logo {
+	font-size: 30px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	margin-right: 40px;
+}
+
+nav ul {
+	list-style: none;
+	display: flex;
+	align-items: center;
+}
+
+nav li {
+	margin-left: 20px;
+}
+
+nav a {
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+	color: #F5A623;
+}
+
+.spellbook {
+	background-color: #F5F5F5;
+	padding: 50px 0;
+}
+
+/* Section Title */
+.section-title {
+  font-size: 32px;
   font-weight: bold;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #333;
+  position: relative;
 }
 
-.counter span:last-child {
-  font-family: monospace;
+.section-title:before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: #F5A623;
+  border-radius: 5px;
 }
 
-/* style for span elements with id starting with "level" */
-
-span[id^="level"] {
-  color: #0366d6;
-  font-weight: bold;
+/* Spell Level Counters */
+.spell-level-counters {
+margin-top: 40px;
+text-align: center;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    margin: 0;
-    padding: 0;
-    background-color: #f7f7f7;
-  }
- 
-  /* Center the heading */
-h1 {
-    text-align: center;
-  }
-  
-  /* Style the spellbook container */
-  #spellbook {
-    max-width: 800px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
-  }
+.spell-level-counters ul {
+display: flex;
+align-items: center;
+justify-content: center;
+list-style: none;
+margin-top: 20px;
+}
 
-  /* Spell card styling */
-  #spell {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 16px;
-    padding: 16px;
-  }
+.spell-level-counters li {
+margin: 0 20px;
+}
+
+/* Spell List */
+.spell-list {
+margin-top: 40px;
+}
+
+.spell-level {
+font-size: 24px;
+margin-bottom: 20px;
+text-transform: uppercase;
+text-align: center;
+}
+
+.spells {
+list-style: none;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+grid-gap: 20px;
+}
+
+.spell {
+background-color: #fff;
+padding: 20px;
+border-radius: 5px;
+box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+position: relative;
+}
+
+.spell-name {
+font-size: 20px;
+font-weight: bold;
+margin-bottom: 10px;
+}
+
+.spell-details {
+margin-bottom: 10px;
+}
+
+.spell-details p {
+margin-bottom: 5px;
+}
+
+.btn-cast-spell {
+background-color: #F5A623;
+color: #fff;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+font-size: 16px;
+font-weight: bold;
+cursor: pointer;
+position: absolute;
+bottom: 20px;
+right: 20px;
+transition: background-color 0.3s ease-in-out;
+}
+
+.btn-cast-spell:hover {
+background-color: #0B0D13;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+.logo {
+font-size: 24px;
+margin-right: 20px;
+}
   
-  #name {
-    color: #f44336;
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-  }
+ nav li {
+	margin-left: 10px;
+}
+
+.spell-level {
+	font-size: 20px;
+}
+
+.spell {
+	padding: 15px;
+}
+
+.spell-details p {
+	font-size: 14px;
+}
+}
+
+@media screen and (max-width: 480px) {
+.spell-level-counters li {
+margin: 0 10px;
+}
   
-  #range,
-  #duration,
-  #castingTime {
-    font-size: 16px;
-    margin: 8px 0;
-  }
-  
-  #description {
-    font-size: 16px;
-    margin: 16px 0;
-  }
-  
-  #castbtn {
-    display: block;
-    width: 100%;
-    padding: 8px 16px;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    color: #fff;
-    background-color: #f44336;
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Responsive design */
-  @media only screen and (max-width: 600px) {
-    #spell {
-      margin: 8px;
-      padding: 8px;
-    }
-  
-    #name {
-      font-size: 20px;
-    }
-  
-    #range,
-    #duration,
-    #castingTime {
-      font-size: 14px;
-      margin: 4px 0;
-    }
-  
-    #description {
-      font-size: 14px;
-      margin: 8px 0;
-    }
-  
-    #castbtn {
-      font-size: 16px;
-      padding: 4px 8px;
-      border-radius: 4px;
-    }
-  }
-  
+  .spell {
+	padding: 10px;
+}
+
+.spell-name {
+	font-size: 16px;
+}
+
+.spell-details p {
+	font-size: 12px;
+}
+
+.btn-cast-spell {
+	font-size: 14px;
+}
+}

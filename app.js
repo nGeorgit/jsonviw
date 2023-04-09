@@ -48,24 +48,26 @@ $(document).ready(function() {
       // Create HTML elements to display the spellbook
       var spellbookHTML = "";
       for (var level in spellbook) {
-        spellbookHTML += "<h2>Level " + level + "</h2>";
-        spellbookHTML += "<ul>";
+        spellbookHTML += "<h2><button class='btn-toggle' id='btn-toggle"+ level +"' aria-expanded='true' onclick='toggle("+level+")' ></button>Level " + level + "</h2>";
+        spellbookHTML += "<ul id='class"+level+"'>";
         for (var i = 0; i < spellbook[level].length; i++) {
           var spell = spellbook[level][i];
-          spellbookHTML += '<li id="spell">';
-          spellbookHTML += "<h3 id='name'>" + spell.name + "</h3>";
-          spellbookHTML += "<p id='name'><strong>Range:</strong> " + spell.range + "</p>";
-          spellbookHTML += "<p id='duration'><strong>Duration:</strong> " + spell.duration + "</p>";
-          spellbookHTML += "<p id='castingTime'><strong>Casting Time:</strong> " + spell.casting_time + "</p>";
-          spellbookHTML += "<p id='description'><strong>Description:</strong> " + spell.description + "</p>";
-          spellbookHTML += "<button id='castbtn' onclick='castSpell(" + level + ', ' + i + ")'>Cast</button>";
-          spellbookHTML += "</li>";
+          // spellbookHTML += '<li id="spell">';
+          // spellbookHTML += "<h3 id='name'>" + spell.name + "</h3>";
+          // spellbookHTML += "<p id='name'><strong>Range:</strong> " + spell.range + "</p>";
+          // spellbookHTML += "<p id='duration'><strong>Duration:</strong> " + spell.duration + "</p>";
+          // spellbookHTML += "<p id='castingTime'><strong>Casting Time:</strong> " + spell.casting_time + "</p>";
+          // spellbookHTML += "<p id='description'><strong>Description:</strong> " + spell.description + "</p>";
+          // spellbookHTML += "<button id='castbtn' onclick='castSpell(" + level + ', ' + i + ")'>Cast</button>";
+          // spellbookHTML += "</li>";
+
+          spellbookHTML += '<li class="spell">		<h4 class="spell-name">' + spell.name + '</h4>		<div class="spell-details">				<p><strong>Range:</strong>' + spell.range + '</p>		<p><strong>Duration:</strong>' + spell.duration + '</p>		<p><strong>Casting Time:</strong>'+spell.casting_time+'</p>	</div>		<button class="btn-cast-spell"  onclick="castSpell(' + level + ', ' + i + ')">Cast</button> </li>';
         }
         spellbookHTML += "</ul>";
       }
   
       // Add the spellbook HTML to the page
-      $("#spellbook").html(spellbookHTML);
+      $(".spell-list").html(spellbookHTML);
   
       // Define a function to cast a spell and reduce the spell slot counter for the respective spell level
       window.castSpell = function(level, i) {
@@ -77,6 +79,17 @@ $(document).ready(function() {
 
         } else {
           alert("You don't have any spell slots of level " + level + " remaining.");
+        }
+      }
+
+      window.toggle = function(level) {
+        let btn = $("#btn-toggle"+level)
+        if (btn.attr("aria-expanded") === 'true'){
+          btn.attr("aria-expanded", 'false');
+          $("#class"+level).css("display", "none");
+        } else {
+          btn.attr("aria-expanded", 'true');
+          $("#class"+level).css("display", "block");
         }
       }
     });

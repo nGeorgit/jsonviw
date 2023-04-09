@@ -43,7 +43,7 @@
   }
   
   .btn-toggle:hover {
-	transform: scale(1.1); /* Scale the button on hover */
+	transform: scale(1.5); /* Scale the button on hover */
   }
   
 

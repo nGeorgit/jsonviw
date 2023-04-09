@@ -26,6 +26,10 @@ $(document).ready(function() {
 
       var spellslots = spellslotsMax;
       
+      for (let i = 1; i <= 9; i++) {
+        $("#level"+i+"-counter").text(spellslots[i]);
+      }
+      
 
       for (var i = 0; i < data.length; i++) {
         var spell = data[i];
@@ -68,7 +72,9 @@ $(document).ready(function() {
         if (spellslots[level] > 0) {
           spellslots[level]--;
           //$("#spellbook li:eq(" + index + ") p:eq(4)").text("Slot Count: " + spell.slot_count);
+          $("#level"+level+"-counter").text(parseInt($("#level"+level+"-counter").text()) - 1);
           alert("You cast " + spellbook[level][i].name + "!");
+
         } else {
           alert("You don't have any spell slots of level " + level + " remaining.");
         }

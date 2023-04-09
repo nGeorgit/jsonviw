@@ -1,4 +1,39 @@
 /* General styling */
+/* style for spell level counters */
+
+#spell-level-counters {
+  background-color: #f6f8fa;
+  border-radius: 6px;
+  margin: 20px 0;
+  padding: 20px;
+}
+
+#spell-level-counters h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.counter {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.counter span:first-child {
+  font-weight: bold;
+}
+
+.counter span:last-child {
+  font-family: monospace;
+}
+
+/* style for span elements with id starting with "level" */
+
+span[id^="level"] {
+  color: #0366d6;
+  font-weight: bold;
+}
+
 body {
     font-family: Arial, sans-serif;
     font-size: 16px;

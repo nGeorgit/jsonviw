@@ -52,14 +52,6 @@ $(document).ready(function() {
         spellbookHTML += "<ul id='class"+level+"'>";
         for (var i = 0; i < spellbook[level].length; i++) {
           var spell = spellbook[level][i];
-          // spellbookHTML += '<li id="spell">';
-          // spellbookHTML += "<h3 id='name'>" + spell.name + "</h3>";
-          // spellbookHTML += "<p id='name'><strong>Range:</strong> " + spell.range + "</p>";
-          // spellbookHTML += "<p id='duration'><strong>Duration:</strong> " + spell.duration + "</p>";
-          // spellbookHTML += "<p id='castingTime'><strong>Casting Time:</strong> " + spell.casting_time + "</p>";
-          // spellbookHTML += "<p id='description'><strong>Description:</strong> " + spell.description + "</p>";
-          // spellbookHTML += "<button id='castbtn' onclick='castSpell(" + level + ', ' + i + ")'>Cast</button>";
-          // spellbookHTML += "</li>";
 
           spellbookHTML += '<li class="spell">		<h4 class="spell-name">' + spell.name + '</h4>		<div class="spell-details">				<p><strong>Range:</strong>' + spell.range + '</p>		<p><strong>Duration:</strong>' + spell.duration + '</p>		<p><strong>Casting Time:</strong>'+spell.casting_time+'</p>	</div>		<button class="btn-cast-spell"  onclick="castSpell(' + level + ', ' + i + ')">Cast</button> </li>';
         }

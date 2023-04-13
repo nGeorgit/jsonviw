@@ -1,89 +1,89 @@
 {
-  "maxSpellSlots":{
-    "1": 2,
-    "2": 2,
-    "3": 2,
-    "4": 2
+  "maxSpellSlots": {
+    "1": 4,
+    "2": 3,
+    "3": 2
+  },
+  "spells": [
+    {
+      "name": "Feather Fall",
+      "level": 1,
+      "casting_time": "1 reaction, which you take when you or a creature within 60 feet of you falls",
+      "range": "60 feet",
+      "duration": "1 minute",
+      "description": "Choose up to five falling creatures within range. A falling creature's rate of descent slows to 60 feet per round until the spell ends.",
+      "type": "",
+      "fake_name": ""
     },
-  "spells" : [
-      {
-        "name": "Burning Hands",
-        "level": 1,
-        "range": "Self (15-foot cone)",
-        "duration": "Instantaneous",
-        "casting_time": "1 action",
-        "description": "A cone of searing flame shoots from your fingertips. Each creature in a 15-foot cone must make a Dexterity saving throw. A creature takes 3d6 fire damage on a failed save, or half as much damage on a successful one."
-      },
-      {
-        "name": "Charm Person",
-        "level": 1,
-        "range": "30 feet",
-        "duration": "1 hour",
-        "casting_time": "1 action",
-        "description": "You attempt to charm a humanoid you can see within range. It must make a Wisdom saving throw, and does so with advantage if you or your companions are fighting it. If it fails the saving throw, it is charmed by you until the spell ends or you or your companions do anything harmful to it."
-      },
-      {
-        "name": "Darkness",
-        "level": 2,
-        "range": "60 feet",
-        "duration": "10 minutes",
-        "casting_time": "1 action",
-        "description": "Magical darkness spreads from a point you choose within range to fill a 15-foot-radius sphere for the duration. The darkness spreads around corners. A creature with darkvision can't see through this darkness, and nonmagical light can't illuminate it."
-      },
-      {
-        "name": "Fireball",
-        "level": 3,
-        "range": "150 feet",
-        "duration": "Instantaneous",
-        "casting_time": "1 action",
-        "description": "A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of flame. Each creature in a 20-foot radius sphere centered on that point must make a Dexterity saving throw. A target takes 8d6 fire damage on a failed save, or half as much damage on a successful one."
-      },
-      {
-        "name": "Fly",
-        "level": 3,
-        "range": "Touch",
-        "duration": "10 minutes",
-        "casting_time": "1 action",
-        "description": "You touch a willing creature. The target gains a flying speed of 60 feet for the duration. When the spell ends, the target falls if it is still aloft, unless it can stop the fall."
-      },
-      {
-        "name": "Hold Person",
-        "level": 2,
-        "range": "60 feet",
-        "duration": "1 minute",
-        "casting_time": "1 action",
-        "description": "Choose a humanoid that you can see within range. The target must succeed on a Wisdom saving throw or be paralyzed for the duration. At the end of each of its turns, the target can make another Wisdom saving throw. On a success, the spell ends on the target."
-      },
-      {
-        "name": "Invisibility",
-        "level": 2,
-        "range": "Touch",
-        "duration": "1 hour",
-        "casting_time": "1 action",
-        "description": "A creature you touch becomes invisible until the spell ends. Anything the target is wearing or carrying is invisible as long as it is on the target's person. The spell ends for a target that attacks or casts a spell."
-      },
-      {
-        "name": "Mage Armor",
-        "level": 1,"range": "Touch",
-        "duration": "8 hours",
-        "casting_time": "1 action",
-        "description": "You touch a willing creature who isn't wearing armor, and a protective magical force surrounds it until the spell ends. The target's base AC becomes 13 + its Dexterity modifier. The spell ends if the target dons armor or if you dismiss the spell as an action."
-        },
-        {
-        "name": "Magic Missile",
-        "level": 1,
-        "range": "120 feet",
-        "duration": "Instantaneous",
-        "casting_time": "1 action",
-        "description": "You create three glowing darts of magical force. Each dart hits a creature of your choice that you can see within range. A dart deals 1d4 + 1 force damage to its target. The darts all strike simultaneously, and you can direct them to hit one creature or several."
-        },
-        {
-        "name": "Shield",
-        "level": 1,
-        "range": "Self",
-        "duration": "1 round",
-        "casting_time": "1 reaction",
-        "description": "An invisible barrier of magical force appears and protects you. Until the start of your next turn, you have a +5 bonus to AC, including against the triggering attack, and you take no damage from magic missile."
-        }
-        ]
-      }  
+    {
+      "name": "Shield",
+      "level": 1,
+      "casting_time": "1 reaction, which you take when you are hit by an attack or targeted by the magic missile spell",
+      "range": "Self",
+      "duration": "1 round",
+      "description": "An invisible barrier of magical force appears and protects you. You gain a +5 bonus to AC, including against the triggering attack, and you take no damage from magic missile.",
+      "type": "",
+      "fake_name": ""
+    },
+    {
+      "name": "Silent Image",
+      "level": 1,
+      "casting_time": "1 action",
+      "range": "60 feet",
+      "duration": "Concentration, up to 10 minutes",
+      "description": "You create the image of an object, a creature, or some other visible phenomenon that is no larger than a 15-foot cube. The image appears at a spot within range and lasts for the duration. The image is purely visual; it isn't accompanied by sound, smell, or other sensory effects. \n\nYou can use your action to cause the image to move to any spot within range. As the image changes location, you can alter its appearance so that its movements appear natural for the image. For example, if you create an image of a creature and move it, you can alter the image so that it appears to be walking. \n\nPhysical interaction with the image reveals it to be an illusion, because things can pass through it. A creature that uses its action to examine the image can determine that it is an illusion with a successful Intelligence (Investigation) check against your spell save DC. If a creature discerns the illusion for what it is, the creature can see through the image, and any noise it makes sounds hollow to the creature.",
+      "type": "",
+      "fake_name": ""
+    },
+    {
+      "name": "Borrowed Knowledge",
+      "level": 2,
+      "casting_time": "1 action",
+      "range": "Self",
+      "duration": "1 hour",
+      "description": "You temporarily gain proficiency in one skill or tool of your choice, which must be one that you are not already proficient in. You also gain advantage on any ability check that uses that proficiency.",
+      "type": "",
+      "fake_name": ""
+    },
+    {
+      "name": "Invisibility",
+      "level": 2,
+      "casting_time": "1 action",
+      "range": "Touch",
+      "duration": "Concentration, up to 1 hour",
+      "description": "A creature you touch becomes invisible until the spell ends. Anything the target is wearing or carrying is invisible as long as it is on the target's person. The spell ends for a target that attacks or casts a spell.",
+      "type": "",
+      "fake_name": ""
+    },
+    {
+      "name": "Rope Trick",
+      "level": 2,
+      "casting_time": "1 action",
+      "range": "Touch",
+      "duration": "1 hour",
+      "description": "You touch a length of rope that is up to 60 feet long. One end of the rope then rises into the air until the whole rope hangs perpendicular to the ground. At the upper end of the rope, an invisible entrance opens to an extradimensional space that lasts until the spell ends. The extradimensional space can be reached by climbing to the top of the rope. The space can hold as many as eight Medium or smaller creatures. The rope can be pulled into the space, making the rope disappear from view outside the space.\n\nAttacks and spells can't cross through the entrance into or out of the extradimensional space, but those inside can see out of it as if through a 3-foot-by-5-foot window centered on the rope. Anything inside the extradimensional space drops out when the spell ends.",
+      "type": "",
+      "fake_name": ""
+    },
+    {
+      "name": "Fireball",
+      "level": 3,
+      "casting_time": "1 action",
+      "range": "150 feet",
+      "duration": "Instantaneous",
+      "description": "A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of flame. Each creature in a 20-foot-radius sphere centered on that point must make a Dexterity saving throw. A target takes 8d6 fire damage on a failed save, or half as much damage on a successful one.",
+      "type": "",
+      "fake_name": ""
+    },
+    {
+      "name": "Fly",
+      "level": 3,
+      "casting_time": "1 action",
+      "range": "Touch",
+      "duration": "Concentration, up to 10 minutes",
+      "description": "You touch a willing creature. The target gains a flying speed of 60 feet for the duration. When the spell ends, the target falls if it is still aloft, unless it can stop the fall.",
+      "type": "",
+      "fake_name": ""
+    }
+  ]
+}

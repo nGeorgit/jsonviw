@@ -59,8 +59,8 @@ $(document).ready(function() {
             '<p><strong>Range:</strong>' + spell.range + '</p>' +
             '<p><strong>Duration:</strong>' + spell.duration + '</p>' +
             '<p><strong>Casting Time:</strong>'+spell.casting_time+'</p>' +
-            '<label for="cast-level-'+level+'-'+i+'">Cast at:</label>' +
             '<p><strong>Description:</strong>'+spell.description+'</p>' +
+            '<label for="cast-level-'+level+'-'+i+'">Cast at:</label>' +
             '<select class="select" id="cast-level-'+level+'-'+i+'" name="cast-level">' + castOptions + '</select>' +
             '</div>' +
             '<button class="btn-cast-spell" onclick="castSpell(' + level + ', ' + i + ', document.getElementById(\'cast-level-'+level+'-'+i+'\').value)">Cast</button>' +

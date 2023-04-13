@@ -71,7 +71,17 @@ $(document).ready(function() {
       
       // Add the spellbook HTML to the page
       $(".spell-list").html(spellbookHTML);
-  
+      var spellCards = document.getElementsByClassName('spell');
+      for (var i = 0; i < spellCards.length; i++) {
+        spellCards[i].addEventListener('click', function() {
+          var details = this.querySelector('.spell-details');
+          if (details.style.display === "none") {
+            details.style.display = "block";
+          } else {
+            details.style.display = "none";
+          }
+        });
+      }
       // Define a function to cast a spell and reduce the spell slot counter for the respective spell level
       window.castSpell = function(level, i, levelCast) {
         if (spellSlots[level] > 0) {
@@ -120,3 +130,4 @@ function updateSpellSlot(level)
   spellSlots[level]--;
   storage.setItem('spellSlots', JSON.stringify(spellSlots));
 }
+

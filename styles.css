@@ -208,23 +208,25 @@ margin-bottom: 10px;
 .spell-details {
 margin-bottom: 10px;
 font-size: 35px;
+display: none;
 }
 
 .spell-details p {
 margin-bottom: 5px;
+padding: 10px;
 }
 
 .btn-cast-spell {
 background-color: #F5A623;
 color: #fff;
-padding: 10px 20px;
+padding: 8px 20px;
 border: none;
 border-radius: 5px;
 font-size: 46px;/*16 */
 font-weight: bold;
 cursor: pointer;
 position: absolute;
-bottom: 20px;
+bottom: 7px;
 right: 20px;
 transition: background-color 0.3s ease-in-out;
 }

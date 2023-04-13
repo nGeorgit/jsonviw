@@ -48,23 +48,39 @@ $(document).ready(function() {
         spellbookHTML += "<ul id='class"+level+"'>";
         for (var i = 0; i < spellbook[level].length; i++) {
           var spell = spellbook[level][i];
+          var castOptions = "";
+          // Create dropdown options for casting at levels 1 through 3
+          for (var j = parseInt(level); j <= 3; j++) {
+            castOptions += "<option value='" + j + "'>Level " + j + "</option>";
+          }
+          spellbookHTML += '<li class="spell">' +
+            '<h4 class="spell-name">' + spell.name + '</h4>' +
+            '<div class="spell-details">' +
+            '<p><strong>Range:</strong>' + spell.range + '</p>' +
+            '<p><strong>Duration:</strong>' + spell.duration + '</p>' +
+            '<p><strong>Casting Time:</strong>'+spell.casting_time+'</p>' +
+            '<label for="cast-level-'+level+'-'+i+'">Cast at:</label>' +
+            '<select class="select" id="cast-level-'+level+'-'+i+'" name="cast-level">' + castOptions + '</select>' +
+            '</div>' +
+            '<button class="btn-cast-spell" onclick="castSpell(' + level + ', ' + i + ', document.getElementById(\'cast-level-'+level+'-'+i+'\').value)">Cast</button>' +
+          '</li>';
 
-          spellbookHTML += '<li class="spell">		<h4 class="spell-name">' + spell.name + '</h4>		<div class="spell-details">				<p><strong>Range:</strong>' + spell.range + '</p>		<p><strong>Duration:</strong>' + spell.duration + '</p>		<p><strong>Casting Time:</strong>'+spell.casting_time+'</p>	</div>		<button class="btn-cast-spell"  onclick="castSpell(' + level + ', ' + i + ')">Cast</button> </li>';
         }
         spellbookHTML += "</ul>";
       }
-  
+      
       // Add the spellbook HTML to the page
       $(".spell-list").html(spellbookHTML);
   
       // Define a function to cast a spell and reduce the spell slot counter for the respective spell level
-      window.castSpell = function(level, i) {
+      window.castSpell = function(level, i, levelCast) {
         if (spellSlots[level] > 0) {
-          spellSlots[level]--;
-          updateSpellSlot(level);
+          spellSlots[levelCast]--;
+
+          updateSpellSlot(levelCast);
           //$("#spellbook li:eq(" + index + ") p:eq(4)").text("Slot Count: " + spell.slot_count);
-          $("#level"+level+"-counter").text(parseInt($("#level"+level+"-counter").text()) - 1);
-          alert("You cast " + spellbook[level][i].name + "!");
+          $("#level"+levelCast+"-counter").text(parseInt($("#level"+levelCast+"-counter").text()) - 1);
+          alert("You cast " + spellbook[level][i].name + " at level " + levelCast);
 
         } else {
           alert("You don't have any spell slots of level " + level + " remaining.");
@@ -83,6 +99,15 @@ $(document).ready(function() {
       }
     });
   });
+
+function resetSpellsReq(){
+  if(confirm("Do you wanna reset your spell slots?"))
+  {
+    resetSpells();
+    location.reload()
+  }
+}
+
 function resetSpells(){
   $.getJSON("spellbook.json", function(data) {
     storage.setItem('spellSlots', JSON.stringify(data.maxSpellSlots));

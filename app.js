@@ -54,8 +54,8 @@ $(document).ready(function() {
             castOptions += "<option value='" + j + "'>Level " + j + "</option>";
           }
           spellbookHTML += '<li class="spell">' +
-            '<h4 class="spell-name">' + spell.name + '</h4>' +
-            '<div class="spell-details">' +
+            '<h4 class="spell-name"onclick="toggleSpell(' + level + ', ' + i + ')">' + spell.name + '</h4>' +
+            '<div class="spell-details" id="'+level+','+i+'">' +
             '<p><strong>Range:</strong>' + spell.range + '</p>' +
             '<p><strong>Duration:</strong>' + spell.duration + '</p>' +
             '<p><strong>Casting Time:</strong>'+spell.casting_time+'</p>' +
@@ -71,17 +71,27 @@ $(document).ready(function() {
       
       // Add the spellbook HTML to the page
       $(".spell-list").html(spellbookHTML);
-      var spellCards = document.getElementsByClassName('spell');
-      for (var i = 0; i < spellCards.length; i++) {
-        spellCards[i].addEventListener('click', function() {
-          var details = this.querySelector('.spell-details');
-          if (details.style.display === "none") {
-            details.style.display = "block";
-          } else {
-            details.style.display = "none";
-          }
-        });
+      // var spellCards = document.getElementsByClassName('btn-show-spell');
+      // for (var i = 0; i < spellCards.length; i++) {
+      //   spellCards[i].addEventListener('click', function() {
+      //     var details = this.querySelector('.spell-details');
+      //     if (details.style.display === "none") {
+      //       details.style.display = "block";
+      //     } else {
+      //       details.style.display = "none";
+      //     }
+      //   });
+      // }
+
+      window.toggleSpell = function(level, i) {
+        details = document.getElementById(level + ',' + i);
+        if (details.style.display == "none") {
+          details.style.display = "block";
+        } else {
+          details.style.display = "none";
+        }
       }
+
       // Define a function to cast a spell and reduce the spell slot counter for the respective spell level
       window.castSpell = function(level, i, levelCast) {
         if (spellSlots[level] > 0) {
@@ -110,11 +120,10 @@ $(document).ready(function() {
     });
   });
 
-function resetSpellsReq(){
+async function resetSpellsReq(){
   if(confirm("Do you wanna reset your spell slots?"))
   {
     resetSpells();
-    location.reload()
   }
 }
 

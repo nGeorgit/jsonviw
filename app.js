@@ -1,8 +1,10 @@
+var storage = window.localStorage;
+
 $(document).ready(function() {
     // Load the spellbook JSON data
     $.getJSON("spellbook.json", function(data) {
       // Sort the spells by level and name
-      data.sort(function(a, b) {
+      data.spells.sort(function(a, b) {
         if (a.level === b.level) {
           return a.name.localeCompare(b.name);
         } else {
@@ -12,27 +14,21 @@ $(document).ready(function() {
   
       // Create a spellbook object to store spell data and spell slot counters
       var spellbook = {};
-      const spellslotsMax = {
-        1: 2,
-        2: 2,
-        3: 2,
-        4: 2,
-        5: 2,
-        6: 2,
-        7: 2,
-        8: 2,
-        9: 2
-      };
 
-      var spellslots = spellslotsMax;
-      
+      let spellSlots = JSON.parse(storage.getItem('spellSlots'));
+
+      if (spellSlots === null)
+      {
+        resetSpells()
+      }
+
       for (let i = 1; i <= 9; i++) {
-        $("#level"+i+"-counter").text(spellslots[i]);
+        $("#level"+i+"-counter").text(spellSlots[i]);
       }
       
 
-      for (var i = 0; i < data.length; i++) {
-        var spell = data[i];
+      for (var i = 0; i < data.spells.length; i++) {
+        var spell = data.spells[i];
         if (!spellbook[spell.level]) {
           spellbook[spell.level] = [];
         }
@@ -48,12 +44,12 @@ $(document).ready(function() {
       // Create HTML elements to display the spellbook
       var spellbookHTML = "";
       for (var level in spellbook) {
-        spellbookHTML += "<h2><button class='btn-toggle' id='btn-toggle"+ level +"' aria-expanded='true' onclick='toggle("+level+")' ></button>Level " + level + "</h2>";
+        spellbookHTML += "<div class='level-header'><button class='btn-toggle' id='btn-toggle"+ level +"' aria-expanded='true' onclick='toggle("+level+")' ></button>Level " + level + "</div>";
         spellbookHTML += "<ul id='class"+level+"'>";
         for (var i = 0; i < spellbook[level].length; i++) {
           var spell = spellbook[level][i];
 
-          spellbookHTML += '<li class="spell">		<h4 class="spell-name">' + spell.name + '</h4>		<div class="spell-details">				<p><strong>Range:</strong>' + spell.range + '</p>		<p><strong>Duration:</strong>' + spell.duration + '</p>		<p><strong>Casting Time:</strong>'+spell.casting_time+'</p>	</div>		<button class="btn btn-lg btn-primary"  onclick="castSpell(' + level + ', ' + i + ')">Cast</button> </li>';
+          spellbookHTML += '<li class="spell">		<h4 class="spell-name">' + spell.name + '</h4>		<div class="spell-details">				<p><strong>Range:</strong>' + spell.range + '</p>		<p><strong>Duration:</strong>' + spell.duration + '</p>		<p><strong>Casting Time:</strong>'+spell.casting_time+'</p>	</div>		<button class="btn-cast-spell"  onclick="castSpell(' + level + ', ' + i + ')">Cast</button> </li>';
         }
         spellbookHTML += "</ul>";
       }
@@ -63,8 +59,9 @@ $(document).ready(function() {
   
       // Define a function to cast a spell and reduce the spell slot counter for the respective spell level
       window.castSpell = function(level, i) {
-        if (spellslots[level] > 0) {
-          spellslots[level]--;
+        if (spellSlots[level] > 0) {
+          spellSlots[level]--;
+          updateSpellSlot(level);
           //$("#spellbook li:eq(" + index + ") p:eq(4)").text("Slot Count: " + spell.slot_count);
           $("#level"+level+"-counter").text(parseInt($("#level"+level+"-counter").text()) - 1);
           alert("You cast " + spellbook[level][i].name + "!");
@@ -86,4 +83,15 @@ $(document).ready(function() {
       }
     });
   });
+function resetSpells(){
+  $.getJSON("spellbook.json", function(data) {
+    storage.setItem('spellSlots', JSON.stringify(data.maxSpellSlots));
+  });
+}
 
+function updateSpellSlot(level)
+{
+  let spellSlots = JSON.parse(storage.getItem('spellSlots'));
+  spellSlots[level]--;
+  storage.setItem('spellSlots', JSON.stringify(spellSlots));
+}

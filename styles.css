@@ -9,7 +9,7 @@
 .spell-list .btn-toggle {
 	border: none;
 	background: none;
-	font-size: 1.2rem;
+	font-size: 5rem;
 	cursor: pointer;
   }
   
@@ -89,7 +89,7 @@ nav a:hover {
 }
 
 .spellbook {
-	background-color: #F5F5F5;
+	background-color: #b3b3b367;
 	padding: 50px 0;
 }
 
@@ -100,7 +100,7 @@ nav a:hover {
   margin-bottom: 40px;
   text-transform: uppercase;
   text-align: center;
-  color: #333;
+  color: #000000;
   position: relative;
 }
 
@@ -121,6 +121,7 @@ nav a:hover {
 .spell-level-counters {
 margin-top: 40px;
 text-align: center;
+font-size: 42px;
 }
 
 .spell-level-counters ul {
@@ -134,6 +135,22 @@ margin-top: 20px;
 .spell-level-counters li {
 margin: 0 20px;
 }
+
+.btn-reset-spells {
+	background-color: #a0a0a0;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	font-size: 36px;/*16 */
+	font-weight: bold;
+	cursor: pointer;
+	position: relative;
+	bottom: 20px;
+	right: 20px;
+	top: 20px;
+	transition: background-color 0.3s ease-in-out;
+	}
 
 /* Spell List */
 .spell-list {
@@ -160,16 +177,19 @@ padding: 20px;
 border-radius: 5px;
 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 position: relative;
+
+margin-top: 10px;
 }
 
 .spell-name {
-font-size: 20px;
+font-size: 40px;
 font-weight: bold;
 margin-bottom: 10px;
 }
 
 .spell-details {
 margin-bottom: 10px;
+font-size: 35px;
 }
 
 .spell-details p {
@@ -182,7 +202,7 @@ color: #fff;
 padding: 10px 20px;
 border: none;
 border-radius: 5px;
-font-size: 16px;
+font-size: 46px;/*16 */
 font-weight: bold;
 cursor: pointer;
 position: absolute;
@@ -193,6 +213,10 @@ transition: background-color 0.3s ease-in-out;
 
 .btn-cast-spell:hover {
 background-color: #0B0D13;
+}
+
+.level-header {
+	font-size: 48px;
 }
 
 /* Responsive Styles */
@@ -229,7 +253,7 @@ margin: 0 10px;
 }
 
 .spell-name {
-	font-size: 16px;
+	font-size: 26px;
 }
 
 .spell-details p {
